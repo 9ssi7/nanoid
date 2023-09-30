@@ -13,7 +13,7 @@ go get github.com/9ssi7/nanoid
 ```go
 import "github.com/9ssi7/nanoid"
 
-id := nanoid.New()
+id, err := nanoid.New()
 ```
 
 ### Custom Length ID

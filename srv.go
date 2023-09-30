@@ -90,14 +90,17 @@ func new(length Length) (string, error) {
 	return instanceID + base64.RawURLEncoding.EncodeToString(bytes), nil
 }
 
+// New returns a new random ID.
 func New() (string, error) {
 	return new(LengthShort)
 }
 
+// NewWithLength returns a new random ID with custom length.
 func NewWithLength(length Length) (string, error) {
 	return new(length)
 }
 
+// MustNew returns a new random ID. It panics if any error occurs.
 func MustNew() string {
 	id, err := New()
 	if err != nil {
@@ -106,6 +109,7 @@ func MustNew() string {
 	return id
 }
 
+// Validate returns true if the given ID is valid.
 func Validate(id string) bool {
 	if len(id) < 8 {
 		return false
